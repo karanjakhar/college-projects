@@ -1,0 +1,238 @@
+/*Develop a mini project to find the area of different shapes (square, right angled triangle, circle etc.) using classes for creating objects of every shape.*/
+ 
+
+
+#include<iostream>
+using namespace std;
+//triangle
+class triangle
+{
+	float base,height,area;
+	public:
+	triangle()
+	{
+		base=height=area=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter base:";
+		cin>>base;
+		cout<<"\nEnter height:";
+		cin>>height;
+		area=0.5*base*height;
+	}
+	void display()
+	{
+		cout<<"\nArea of Triangle:"<<area;
+	}
+};
+
+
+//reactangle
+class reactangle
+{
+	float len,brea,area;
+	public:
+	reactangle()
+	{
+		len=brea=area=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter length:";
+		cin>>len;
+		cout<<"\nEnter breadth:";
+		cin>>brea;
+		area=len*brea;
+	}
+	void display()
+	{
+		cout<<"\nArea of Reactangle:"<<area;
+	}
+};
+
+//square
+class square
+{
+	float side,area;
+	public:
+	square()
+	{
+		side=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter side:";
+		cin>>side;
+		area=side*side;
+	}
+	void display()
+	{
+		cout<<"\nArea of Square:"<<area;
+	}
+};
+
+//circle
+class circle
+{
+	float rad,area;
+	public:
+	circle()
+	{
+		rad=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter radius:";
+		cin>>rad;
+		area=3.14*rad*rad*2;
+	}
+	void display()
+	{
+		cout<<"\nArea of Circle:"<<area;
+	}
+};
+
+//	rhombus
+class rhombus
+{
+	float d1,d2,area;
+	public:
+	rhombus()
+	{
+		d1=d2=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter First Diagonal:";
+		cin>>d1;
+		cout<<"\nEnter Second Diagonal:";
+		cin>>d2;
+		area=0.5*d1*d2;
+	}
+	void display()
+	{
+		cout<<"\nArea of Rhombus:"<<area;
+	}
+};
+
+//parallelogram
+class parallelogram
+{
+	float base,height,area;
+	public:
+	parallelogram()
+	{
+		base=height=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter base:";
+		cin>>base;
+		cout<<"\nEnter height:";
+		cin>>height;
+		area=base*height;
+	}
+	void display()
+	{
+		cout<<"\nArea of Parallelogram:"<<area;
+	}
+};
+
+//kite
+class kite
+{
+	float d1,d2,area;
+	public:
+    kite()
+	{
+		d1=d2=0;
+	}
+	void getdata()
+	{
+		cout<<"\nEnter First Diagonal:";
+		cin>>d1;
+		cout<<"\nEnter Second Diagonal:";
+		cin>>d2;
+		area=0.5*d1*d2;
+	}
+	void display()
+	{
+		cout<<"\nArea of Kite:"<<area;
+	}
+};
+
+//main 
+int main()
+{
+	int op;
+	char ch;
+	do
+	{
+		cout<<"\n1.Triangle";
+		cout<<"\n2.Reactangle";
+		cout<<"\n3.Square";
+		cout<<"\n4.Circle";
+		cout<<"\n5.Rhombus";
+		cout<<"\n6.Parallelogram";
+		cout<<"\n7.Kite"; 		
+		cout<<"\n\nEnter Your Option Whose Area You Want:";
+		cin>>op;
+		switch(op)
+		{
+			case 1:
+			     { triangle tobj;
+			      tobj.getdata();
+			      tobj.display();
+			     }
+			      break;
+			case 2:
+			     {reactangle reobj;
+			      reobj.getdata();
+			      reobj.display();
+			     }
+			      break;
+		    case 3:
+		        { square sobj;
+		          sobj.getdata();
+			      sobj.display();
+			    }
+			     break;
+			case 4:
+	            { circle cobj;
+	              cobj.getdata();
+			      cobj.display();
+			    }
+			      break;
+			case 5:
+			    { rhombus robj;
+			      robj.getdata();
+			      robj.display();
+			    }
+			      break;
+			case 6:
+			    { parallelogram pobj;
+			      pobj.getdata();
+			      pobj.display();
+			    }
+			      break;
+			case 7:
+			    { kite kobj;
+			      kobj.getdata();
+			      kobj.display();
+			    }
+			      break;	
+			case 8:
+			      exit(0);
+			      break;
+			default:
+			      cout<<"\nEnter Valid Option.";
+			      break;	          
+         }
+         cout<<"\nWant Enter Again(y/n):";
+         cin>>ch;
+	 }while(ch=='y'||ch=='Y');
+	 
+   cout<<"\n\nTHANKYOU";
+   return 0;
+}			  
