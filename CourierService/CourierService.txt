@@ -1,0 +1,344 @@
+#include <iostream>
+#include <stdlib.h>
+
+
+using namespace std;
+//for maintaining date
+class Cdate
+{
+    int day,month,year;
+public:
+    Cdate()
+    {
+        day=1;
+        month=1;
+        year=2001;
+    }
+    void getdate();
+    void putdate();
+};
+void Cdate::getdate()
+{
+    cout<<"\nEnter Date";
+    cout<<"\nEnter Day:";
+    cin>>day;
+    cout<<"Enter Month:";
+    cin>>month;
+    cout<<"Enter Year:";
+    cin>>year;
+
+}
+void Cdate::putdate()
+{
+    cout<<"\nDate:-"<<day;
+    cout<<"/"<<month;
+    cout<<"/"<<year;
+}
+
+//for time
+class time
+{
+     int hrs,mint,sec;
+ public:
+     time()
+     {
+         hrs=mint=sec=0;
+     }
+     void gettime();
+     void puttime();
+
+};
+void time::gettime()
+{
+    cout<<"\nEnter Time";
+    cout<<"\nEnter hours:";
+    cin>>hrs;
+    cout<<"Enter minutes:";
+    cin>>mint;
+    cout<<"Enter seconds:";
+    cin>>sec;
+
+
+}
+void time::puttime()
+{
+    cout<<"\nTime:-"<<hrs;
+    cout<<":"<<mint;
+    cout<<":"<<sec;
+
+}
+
+
+//for address
+class address
+{
+	string s_add,r_add;
+	int s_mob,r_mob;
+	public:
+	void in_s_add();
+	void in_r_add();
+	void out_s_add();
+	void out_r_add();
+};
+
+void address::in_s_add()
+{
+	cout<<"\nEnter sender's full address:";
+	cin>>s_add;
+	cout<<"\nEnter contant number:";
+	cin>>s_mob;
+}
+void address::in_r_add()
+{
+	cout<<"\nEnter receiver's full address:";
+	cin>>r_add;
+	cout<<"\nEnter contact number:";
+	cin>>r_mob;
+}
+
+void address::out_s_add()
+{
+	cout<<"\nSender's full address:"<<s_add;
+	cout<<"\nContant number:"<<s_mob;
+}
+void address::out_r_add()
+{
+	cout<<"\nReceiver's full address:"<<r_add;
+	cout<<"\nContact number:"<<r_mob;
+}
+
+
+
+//for booking
+
+class booking:public Cdate,public time,public address
+{
+private:
+    string item_name,sender_name,receiver_name;
+    int item_no,cus_cont,no_of_items;
+    float item_price,dev_cost;
+public:
+    void booking_details();
+    void booking_show();
+};
+void booking::booking_details()
+{   getdate();
+    gettime();
+    cout<<"\nEnter item name:";
+    cin>>item_name;
+    cout<<"\nEnter item number:";
+    cin>>item_no;
+    cout<<"\nEnter item quantity:";
+    cin>>no_of_items;
+    cout<<"\nEnter sender's name:";
+    cin>>sender_name;
+    in_s_add();
+    cout<<"\nEnter receiver's name:";
+    cin>>receiver_name;
+    in_r_add();
+
+
+}
+
+void booking::booking_show()
+{   putdate();
+    puttime();
+    cout<<"\nItem name:"<<item_name;
+    cout<<"\nItem number:"<<item_no;
+    cout<<"\nItem quantity:"<<no_of_items;
+    cout<<"\nSender's name:"<<sender_name;
+    out_s_add();
+    cout<<"\nEnter receiver's name:"<<receiver_name;
+    out_r_add();
+
+
+}
+//for employee
+class emp:public Cdate,public time,public address
+{
+    string emp_name;
+    int emp_no;
+    float emp_salary,bp,ha;
+public:
+    static float totsal;
+    void emp_detail();
+    void emp_show();
+};
+float emp::totsal;
+void emp::emp_detail()
+{   getdate();
+    gettime();
+
+    cout<<"\nEnter employee name:";
+    cin>>emp_name;
+    cout<<"\nEnter employee number:";
+    cin>>emp_no;
+    cout<<"\nEnter employee salary:";
+
+    cout<<"\nBasic Pay:";
+    cin>>bp;
+    cout<<"\nHome Allowance:";
+    cin>>ha;
+    emp_salary=bp+ha;
+    totsal+=emp_salary;
+
+}
+
+void emp::emp_show()
+{
+    putdate();
+    puttime();
+    cout<<"\nEmployee name:"<<emp_name;
+    cout<<"\nEmployee number:"<<emp_no;
+    cout<<"\nEmployee salary:"<<emp_salary;
+
+}
+
+class incoming_courier:public Cdate,public time,public address
+{
+    string item_name,sender_name,receiver_name;
+    int item_no,cus_cont,no_of_items;
+    float item_price,dev_cost;
+public:
+    void incoming_details();
+    void incoming_show();
+
+};
+void incoming_courier::incoming_details()
+{
+    getdate();
+    gettime();
+    cout<<"\nEnter item name:";
+    cin>>item_name;
+    cout<<"\nEnter item number:";
+    cin>>item_no;
+    cout<<"\nEnter item quantity:";
+    cin>>no_of_items;
+    cout<<"\nEnter sender's name:";
+    cin>>sender_name;
+    in_s_add();
+    cout<<"\nEnter receiver's name:";
+    cin>>receiver_name;
+    in_r_add();
+
+
+}
+void incoming_courier::incoming_show()
+{
+    putdate();
+    puttime();
+    cout<<"\nItem name:"<<item_name;
+    cout<<"\nItem number:"<<item_no;
+    cout<<"\nItem quantity:"<<no_of_items;
+    cout<<"\nSender's name:"<<sender_name;
+    out_s_add();
+    cout<<"\nReceiver's name:"<<receiver_name;
+    out_r_add();
+
+
+}
+class return_courier:public Cdate,public time,public address
+{
+    string item_name,sender_name,receiver_name;
+    int item_no,cus_cont,no_of_items;
+    float item_price,dev_cost;
+public:
+    void return_details();
+    void return_show();
+
+};
+void return_courier::return_details()
+{
+    getdate();
+    gettime();
+    cout<<"\nEnter item name:";
+    cin>>item_name;
+    cout<<"\nEnter item number:";
+    cin>>item_no;
+    cout<<"\nEnter item quantity:";
+    cin>>no_of_items;
+    cout<<"\nEnter sender's name:";
+    cin>>sender_name;
+    in_s_add();
+    cout<<"\nEnter receiver's name:";
+    cin>>receiver_name;
+    in_r_add();
+
+
+}
+void return_courier::return_show()
+{
+    putdate();
+    puttime();
+    cout<<"\nItem name:"<<item_name;
+    cout<<"\nItem number:"<<item_no;
+    cout<<"\nItem quantity:"<<no_of_items;
+    cout<<"\nSender's name:"<<sender_name;
+    out_s_add();
+    cout<<"\nEnter receiver's name:"<<receiver_name;
+    out_r_add();
+
+
+}
+
+//main function
+int main()
+{
+    int op;
+    char ch;
+     do
+     {   
+         system("clear");
+         cout<<"\n\t\tKJ COURIER SERVICE";
+         
+         cout<<"\n1.Booking.";
+         cout<<"\n2.Employee Detail.";
+         cout<<"\n3.Incoming Detail.";
+         cout<<"\n4.Return Detail.";
+         cout<<"\n5.Exit.";
+         cout<<"\nEnter Your Choice:";
+         cin>>op;
+         switch(op)
+         {
+         case 1:
+            {
+                booking obj;
+                obj.booking_details();
+                obj.booking_show();
+            }
+            break;
+         case 2:
+            {
+                emp obj;
+                obj.emp_detail();
+                obj.emp_show();
+            }
+            break;
+         case 3:
+            {
+                incoming_courier obj;
+                obj.incoming_details();
+                obj.incoming_show();
+            }
+            break;
+         case 4:
+            {
+                return_courier obj;
+                obj.return_details();
+                obj.return_show();
+            }
+             break;
+         case 5:
+            exit(0);
+         default:
+            cout<<"\nEnter a valid option.";
+            break;
+         }
+         cout<<"\nWant to enter again(y/n):";
+         cin>>ch;
+         
+     }while(ch=='y'||ch=='Y');
+     cout<<"\n---------------THANKYOU----------------";
+    return 0;
+}
+
